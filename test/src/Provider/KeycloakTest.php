@@ -262,7 +262,7 @@ namespace Stevenmaguire\OAuth2\Client\Test\Provider
 
             $decoder = \Mockery::mock('overload:Firebase\JWT\JWT');
             $decoder->shouldReceive('decode')
-                ->with($jwt, $key, [$algorithm])
+                ->with($jwt, m::type('Firebase\JWT\Key'))
                 ->andReturn([
                     'sub' => $userId,
                     'email' => $email,
